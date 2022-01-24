@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Viewport -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind Css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="style/style.css">
+
+    <!-- Title -->
+    <title>Signup</title>
+</head>
+
+<body>
+    <nav class="flex items-center justify-between bg-blue-500 py-4 px-3">
+        <a href="" class="text-white flex text-[20px] items-center">
+            Ask<div class="NavBubbleChat">Me</div>
+        </a>
+        <div class="inline-flex text-white">
+            <a href="" class="px-3">LOGIN</a>
+            <div class="border-r mx-0.5"></div>
+            <a href="" class="px-3">JOIN</a>
+        </div>
+    </nav>
+    <div class="sm:w-9/12 sm:max-w-2xl w-11/12 mx-auto">
+        <h1 class="text-blue-500 text-xl mb-6 mt-6">Create your account</h1>
+        <div>
+            <p class="text-gray-600">Username</p>
+            <input type="text"
+                class="w-full border text-sm border-gray-300 px-1 py-1.5 focus:border-blue-500 outline-none rounded">
+            <p class="text-red-400 text-[14px]">Please enter username</p>
+        </div>
+        <div class="mt-5">
+            <p class="text-gray-600">Name</p>
+            <input type="text"
+                class="w-full border text-sm border-gray-300 px-1 py-1.5 focus:border-blue-500 outline-none rounded">
+        </div>
+        <div class="mt-5">
+            <p class="text-gray-600">Email Address</p>
+            <input type="text"
+                class="w-full border text-sm border-gray-300 px-1 py-1.5 focus:border-blue-500 outline-none rounded">
+        </div>
+        <div class="mt-5">
+            <p class="text-gray-600">Password</p>
+            <input type="text"
+                class="w-full border text-sm border-gray-300 px-1 py-1.5 focus:border-blue-500 outline-none rounded">
+        </div>
+        <div class="inline-flex items-center mt-5 mb-4">
+            <input type="radio" name="radioBtn" class="mr-1.5" id="maleRd">
+            <label class="text-gray-600" for="maleRd">Male</label>
+            <div class="px-3"></div>
+            <input type="radio" name="radioBtn" class="mr-1.5" id="femaleRd">
+            <label class="text-gray-600" for="femaleRd">Female</label>
+        </div>
+        <br>
+        <button class="block mx-auto w-6/12 py-2 rounded bg-blue-500 text-white">Sign me up</button>
+    </div>
+</body>
+
+</html>
