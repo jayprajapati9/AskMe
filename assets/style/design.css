@@ -1,0 +1,323 @@
+:root {
+  /* blue-500 #3b82f6 Main */
+  /* slate-900 #0f172a Primary */
+  /* gray-700 #374151 Secondary */
+  /* gray-500 #6b7280 Tertiary */
+  /* slate-500 #64748b Description */
+
+  --txt-main-color: #3b82f6;
+  --txt-primary-color: #0f172a;
+  --txt-secondary-color: #374151;
+  --txt-tertiary-color: #6b7280;
+  /* --txt-desc-color: #64748b; */
+
+  /* Old Colors */
+  /* --txt-secondary-color: #6b7280; */
+  /* --txt-primary-color: #343239; */
+
+  --bg-white: #ffffff;
+  --bg-main: #3b82f6;
+  --bg-gray: #ebebeb; /*cacaca*/
+
+  --border-main-color: #3b82f6;
+  --border-gray-color: #d3e3ea;
+
+  --card-shadow: 0px 6px 18px 0px rgb(241 243 255);
+}
+
+input[type="file"] {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+
+/* <------ Main Container ------> */
+.main-container {
+  height: calc(100% - 72px);
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.design-controls-wrap {
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  flex: 1;
+  padding: 30px 70px;
+  padding-top: 20px;
+}
+/* Width, Track, Handle, Handle on hover */
+.design-controls-wrap::-webkit-scrollbar {
+  width: 7px;
+}
+.design-controls-wrap::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+.design-controls-wrap::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+.design-controls-wrap::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+.preview-wrap {
+  height: 100%;
+  width: 40%;
+  max-width: 520px;
+}
+@media screen and (max-width: 1024px) {
+  .design-controls-wrap {
+    padding: 30px 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-container {
+    width: 100%;
+    height: unset;
+  }
+  .design-controls-wrap {
+    height: 100%;
+    padding: 20px 18px;
+  }
+  .preview-wrap {
+    display: none;
+  }
+}
+/* <------ /Main Container ------> */
+
+/* <------ Card, Title ------> */
+.card-title {
+  color: var(--txt-primary-color);
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.card-shadow {
+  box-shadow: var(--card-shadow);
+  -webkit-box-shadow: var(--card-shadow);
+}
+.card-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: var(--bg-white);
+  /* border: 1px solid var(--border-gray-color); */
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 25px;
+  box-shadow: var(--card-shadow);
+  -webkit-box-shadow: var(--card-shadow);
+  /* -moz-box-shadow: 0px 6px 18px 0px rgba(241 243 255 1); */
+}
+@media screen and (max-width: 640px) {
+  .card-title {
+    font-size: 24px;
+  }
+}
+/* <------ /Card, Title ------> */
+
+/* <------- Themes Input -------> */
+.theme-input {
+  position: relative;
+  height: 140px;
+  width: 100px;
+  margin: 0.5rem;
+  -webkit-transition: transform 0.2s ease-in-out;
+  -moz-transition: transform 0.2s ease-in-out;
+  -o-transition: transform 0.2s ease-in-out;
+  -ms-transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+}
+.theme-input:hover {
+  transform: scale(1.05);
+}
+.theme-input input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+}
+.theme-input .radio-btn-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  -webkit-transition: border 300ms ease;
+  -moz-transition: border 300ms ease;
+  -o-transition: border 300ms ease;
+  -ms-transition: border 300ms ease;
+  transition: border 300ms ease;
+}
+.custom-theme-input {
+  height: 145px;
+  width: 99px;
+}
+.custom-theme-input div {
+  height: 115px;
+  width: 85px;
+  background-color: var(--bg-gray);
+  border-radius: 8px;
+}
+.radio-btn:checked + .radio-btn-body {
+  border: 2px solid var(--txt-tertiary-color);
+}
+/* <------- /Themes Input -------> */
+
+/* <------- Button -------> */
+.fill-btn,
+.outline-btn,
+.softshadow-btn,
+.hardshadow-btn,
+.square-corner-btn,
+.slightly-rounded-btn,
+.rounded-btn,
+.circular-btn {
+  width: 100%;
+  max-width: 160px;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 7px;
+  padding: 6px;
+}
+.fill-btn div,
+.outline-btn div,
+.softshadow-btn div,
+.square-corner-btn div,
+.slightly-rounded-btn div,
+.rounded-btn div,
+.circular-btn div {
+  width: 100%;
+  padding: 15px 0px;
+}
+
+.fill-btn div {
+  background-color: var(--bg-gray);
+}
+.outline-btn div {
+  border: 2px solid var(--bg-gray);
+}
+.softshadow-btn div {
+  box-shadow: 0px 7px 12px 4px rgba(0, 0, 0, 0.1);
+}
+
+.square-corner-btn div {
+  background-color: var(--bg-gray);
+  border-radius: 0px;
+}
+.slightly-rounded-btn div {
+  background-color: var(--bg-gray);
+  border-radius: 3px;
+}
+.rounded-btn div {
+  background-color: var(--bg-gray);
+  border-radius: 6px;
+}
+.circular-btn div {
+  background-color: var(--bg-gray);
+  border-radius: 999px;
+}
+
+.selected-button-style {
+  border: 2px solid #979797;
+}
+.selected-button-corners {
+  border: 2px solid #979797;
+}
+
+.btnbg-color-input,
+.btntxt-color-input,
+.font-color-input,
+.flat-color-input {
+  height: 44px;
+  width: 44px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 2px solid #e8eef5;
+  border-radius: 9px;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+::-webkit-color-swatch {
+  border: 0px;
+  border-radius: 7px;
+}
+::-moz-color-swatch,
+::-moz-focus-inner {
+  border: 0px;
+}
+::-moz-focus-inner {
+  padding: 0;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+.font-opensans {
+  font-family: "Open Sans", sans-serif;
+}
+.font-oswald {
+  font-family: "Oswald", sans-serif;
+}
+.font-playfairdisplay {
+  font-family: "Playfair Display", serif;
+}
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+.font-roboto {
+  font-family: "Roboto", sans-serif;
+}
+/* <------- /Button -------> */
+
+/* <------- Preview Wrap -------> */
+.preview-frame {
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.preview-frame img {
+  width: 290px;
+  position: absolute;
+  z-index: 1;
+}
+.preview-frame iframe {
+  position: relative;
+  z-index: -1;
+  width: 220px;
+  height: 423px;
+  padding: 0px 10px;
+  left: 0px;
+  top: 0px;
+  border-radius: 30px;
+}
+@media screen and (max-width: 800px) {
+  .preview-header h1 {
+    font-size: 16px;
+  }
+  .preview-frame {
+    display: none;
+  }
+}
+/* <------- /Preview Wrap -------> */

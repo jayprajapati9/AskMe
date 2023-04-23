@@ -1,0 +1,146 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 35px 20px;
+}
+.profile-img,
+.default-avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 100px;
+  margin-bottom: 13px;
+}
+.default-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.default-avatar span {
+  font-size: 30px;
+}
+/* @media only screen and (max-width: 500px) {
+  .profile-img,
+  .default-avatar {
+    width: 50px;
+    height: 50px;
+  }
+} */
+.profile-title {
+  font-size: 18px;
+  text-align: center;
+}
+.profile-bio {
+  font-size: 13px;
+  text-align: center;
+  margin-top: 6px;
+}
+.header-block {
+  font-size: 14px;
+  color: #2f2f31;
+  margin-top: 5px;
+  font-weight: 500;
+}
+.header-block:is(:last-child) {
+  margin-top: 7px;
+}
+.blocks-container {
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 8px;
+}
+.link-block {
+  font-size: 13px;
+  width: 100%;
+  text-align: center;
+  margin: 8px 0px;
+  padding: 9px 0px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.link-block:hover,
+.link-block:focus {
+  opacity: 0.9;
+  transition: opacity ease-in-out 1.5ms;
+}
+
+.card-block {
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin: 10px 0px;
+}
+.card-block .card-desc {
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.spotify-block {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.spotify-block-active {
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  border-radius: 0px 0px 8px 8px;
+}
+.spotify-name {
+  position: relative;
+  padding: 12px 0px;
+  border-radius: 8px;
+}
+.spotify-name i {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 26px;
+  cursor: pointer;
+  padding: 2px;
+}
+.spotify-song {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+.spotify-song div {
+  padding: 15px 20px;
+}
+.spotify-song iframe {
+  width: 100%;
+  max-height: 80px;
+}
+
+.icons-container {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 18px;
+  font-size: 36px;
+}
+.icons-container a:is(:hover, :focus) {
+  outline: none;
+  transition: transform ease-in-out 100ms;
+  transform: scale(1.09);
+}
+.icons-container a i {
+  opacity: 0.88;
+}

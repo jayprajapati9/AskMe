@@ -1,19 +1,16 @@
 <?php
 
+// mysqli_report(MYSQLI_REPORT_ALL);
+
+include_once("database.class.php");
+
 class User extends Database
 {
 
-    private $conn;
-
-    public function __construct()
+    public function isUsernameOrEmailExist($params, $param2)
     {
-        $this->conn = $this->connectDB();
-    }
-
-    public function isUsernameEmailExist($username, $useremail)
-    {
-        $stmt = $this->conn->prepare("SELECT username, useremail FROM `users` WHERE username = ? OR useremail = ?");
-        $stmt->bind_param("ss", $username, $useremail);
+        $stmt = $this->conn->prepare("SELECT $param2 FROM `users` WHERE $param2 = ?");
+        $stmt->bind_param("s", $params);
         $stmt->execute();
         if ($stmt->fetch()) {
             return true;
@@ -23,10 +20,23 @@ class User extends Database
         $stmt->close();
     }
 
-    public function signUpUser($username, $fullname, $useremail, $userpassw, $gender)
+    public function isUserExist($username)
     {
-        $stmt = $this->conn->prepare("INSERT INTO `users`(username, fullname, useremail, userpassw, gender) VALUES (?,?,?,?,?)");
-        $stmt->bind_param("sssss", $username, $fullname, $useremail, $userpassw, $gender);
+        $stmt = $this->conn->prepare("SELECT username FROM `users` WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        if ($stmt->fetch()) {
+            return true;
+        } else {
+            return false;
+        }
+        $stmt->close();
+    }
+
+    public function signupUser($username, $email, $password)
+    {
+        $stmt = $this->conn->prepare("INSERT INTO users (username, useremail, userpassw) VALUES (?,?,?)");
+        $stmt->bind_param("sss", $username, $email, $password);
         if ($stmt->execute()) {
             return true;
         } else {
@@ -48,37 +58,64 @@ class User extends Database
         $stmt->close();
     }
 
-    public function searchUser($username)
-    {
-        $data = array();
-        $stmt = $this->conn->prepare("SELECT username, fullname, userimg from `users` WHERE username LIKE CONCAT('%',?,'%') OR fullname LIKE CONCAT('%',?,'%')");
-        $stmt->bind_param("ss", $username, $username);
-        $stmt->execute();
-        $get_result = $stmt->get_result();
-        while ($res = $get_result->fetch_object()) {
-            $data[] = $res;
-        }
-        return $data;
-    }
-
-    public function totalFound($username)
-    {
-        $stmt = $this->conn->prepare("SELECT username, fullname, userimg from `users` WHERE username LIKE CONCAT('%',?,'%') OR fullname LIKE CONCAT('%',?,'%')");
-        $stmt->bind_param("ss", $username, $username);
-        $stmt->execute();
-        $stmt->store_result();
-        $totalFound = $stmt->num_rows();
-        return $totalFound;
-    }
-
     public function getUserData($username)
     {
-        $stmt = $this->conn->prepare("SELECT `username`, `fullname`, `followers`, `following`, `totalpost`, `userimg`, `userbio` FROM `users` WHERE username = ?");
+        $stmt = $this->conn->prepare("SELECT * FROM `users` WHERE username = ?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
-        return $stmt->get_result()->fetch_assoc();
-        // $stmt->bind_result($username, $fullname, $followers, $following, $totalpost, $userimg, $userbio);
-    }
-}
+        // 1
+        // $result = $stmt->get_result();
+        // $result = $stmt->get_result();
+        // $data = $result->fetch_assoc();
 
-?>
+        // 2
+        // fetch the result as an array
+        // if ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+        //     $user = array(
+        //         "username" => $row["username"]
+        //     );
+        // }
+
+        // 3
+        // $row = $stmt->get_result()->fetch_assoc();
+        // $returnarr = array(
+        //     "username" => $row["username"]
+        // );
+
+        // 4
+        // $result = $stmt->get_result();
+        // $row = $result->fetch_array();
+        // if ($row) {
+        //     $returnarr = array(
+        //         "username" => $row["username"]
+        //     );
+        // }
+
+        $result = $stmt->get_result();
+        while ($data = $result->fetch_assoc()) {
+            $returnarr = array(
+                "username" => $data["username"],
+                "userimg" => $data["userimg"],
+                "usertitle" => $data["usertitle"],
+                "userbio" => $data["userbio"],
+                "usertheme" => $data["usertheme"],
+                "iscustom" => $data["iscustom"]
+            );
+        }
+        return $returnarr;
+        $stmt->close();
+    }
+
+    public function updateBio($username, $biotxt)
+    {
+        $stmt = $this->conn->prepare("UPDATE `users` SET userbio = ? WHERE username = ?");
+        $stmt->bind_param("ss", $biotxt, $username);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+        $stmt->close();
+    }
+
+}
