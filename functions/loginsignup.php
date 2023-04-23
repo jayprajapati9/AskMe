@@ -1,30 +1,27 @@
 <?php
 
-include "../classes/database.class.php";
-include "../classes/helper.class.php";
-include "../classes/user.class.php";
-include "../classes/session.class.php";
+include_once("../classes/user.class.php");
+include_once("../classes/helper.class.php");
+include_once("../classes/session.class.php");
 
 Session::start();
-$Helper = new Helper();
-$User = new User();
+$user = new User();
+$helper = new Helper();
 
-if (isset($_POST['action'])) {
-    if ($_POST['action'] == "signup") {
-
-        $username  = $Helper->sanitizeInput(strtolower($_POST['usernameVal']));
-        $fullname  = $Helper->sanitizeInput($_POST['fullnameVal']);
-        $useremail = $Helper->sanitizeInput($_POST['emailVal']);
-        $gender    = $Helper->sanitizeInput($_POST['genderVal']);
-        $userpassw = $Helper->sanitizeInput($Helper->md5Password($_POST['passwVal']));
-
-        if ($User->isUsernameEmailExist($username, $useremail)) {
-             echo json_encode(array("status" => "failed", "message" => "ACCOUNT IS TAKEN"));
+if (isset($_POST["action"])) {
+    if ($_POST["action"] === "signup") {
+        $username = $helper->sanitizeInput(strtolower($_POST["usernameVal"]));
+        $email = $helper->sanitizeInput(strtolower($_POST["emailVal"]));
+        $password = $helper->sanitizeInput(md5($_POST["passwVal"]));
+        if ($user->isUsernameOrEmailExist($username, "username")) {
+            echo json_encode(array("status" => "failed", "message" => "USERNAME_IS_TAKEN"));
+        } else if ($user->isUsernameOrEmailExist($email, "useremail")) {
+            echo json_encode(array("status" => "failed", "message" => "EMAIL_IS_TAKEN"));
         } else {
-            if ($User->signUpUser($username,$fullname,$useremail,$userpassw,$gender)) {
-                echo json_encode(array("status" => "success", "message" => "ACC CREATED"));
+            if ($user->signUpUser($username, $email, $password)) {
+                echo json_encode(array("status" => "success", "message" => "ACC_CREATED"));
             } else {
-                echo json_encode(array("status" => "failed", "message" => "ACC ERROR"));
+                echo json_encode(array("status" => "failed", "message" => "ACC_ERROR"));
             }
         }
     }
@@ -33,17 +30,14 @@ if (isset($_POST['action'])) {
 if (isset($_POST["action"])) {
     if ($_POST["action"] == "login") {
 
-        $username = $Helper->sanitizeInput(strtolower($_POST["usernameVal"]));
-        $userpassw = $Helper->sanitizeInput(md5($_POST["passwVal"]));
+        $username = $helper->sanitizeInput(strtolower($_POST["usernameVal"]));
+        $userpassw = $helper->sanitizeInput(md5($_POST["passwVal"]));
 
-        if ($User->loginUser($username,$userpassw)) {
+        if ($user->loginUser($username, $userpassw)) {
             $_SESSION["authclient_username"] = $username;
-            echo json_encode(array("status" => "success", "message" => "CORRECT INFO"));
+            echo json_encode(array("status" => "success", "message" => "CORRECT_INFO"));
         } else {
-            echo json_encode(array("status" => "failed", "message" => "INCORRECT INFO"));
+            echo json_encode(array("status" => "failed", "message" => "INCORRECT_INFO"));
         }
-
     }
 }
-
-?>

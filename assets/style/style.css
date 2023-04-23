@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+button,
+a,
+i {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Bg Blob Image */
+.bg-scene-blob {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  -webkit-filter: blur(14px);
+  -ms-filter: blur(14px);
+  filter: blur(14px);
+}
+
+@media screen and (max-width: 768px) {
+  .bg-scene-blob {
+    -webkit-filter: blur(5px);
+    -ms-filter: blur(14px);
+    filter: blur(5px);
+  }
+}
+
+/* ------- For Login And Signup Page ------- */
+.__gradientBG {
+  background-color: white;
+}
+
+@media (min-width: 1024px) {
+  .__gradientBG {
+    background: #00c6ff;
+    background: -webkit-linear-gradient(to bottom, #0072ff, #00c6ff);
+    background: linear-gradient(to bottom, #0072ff, #00c6ff);
+  }
+}
+
+/* Alert Toast */
+.alert-toast {
+  -webkit-animation: popout 0.5s ease;
+  -moz-animation: popup 0.5s ease;
+  -o-animation: popout 0.5s ease;
+  animation: popout 0.5s ease;
+}
+@keyframes popout {
+  from {
+    transform: translatey(-100px);
+  }
+  to {
+    transform: translatex(0);
+  }
+}
+@-o-keyframes popout {
+  from {
+    -o-transform: translateY(-100px);
+  }
+  to {
+    -o-transform: translateY(0);
+  }
+}
+@-moz-keyframes popout {
+  from {
+    -moz-transform: translateY(-100px);
+  }
+  to {
+    -moz-transform: translateY(0);
+  }
+}
+@-webkit-keyframes popout {
+  from {
+    -webkit-transform: translatey(-100px);
+  }
+  to {
+    -webkit-transform: translatey(0);
+  }
+}
+
+/* Extras */
+/* input,
+  textarea,
+  button,
+  select,
+  a,
+  i {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-user-select: -moz-none;
+  }
+  input,
+  textarea,
+  button,
+  select,
+  a,
+  i:focus {
+    outline: none !important;
+  } */

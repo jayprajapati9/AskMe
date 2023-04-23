@@ -1,0 +1,35 @@
+.profile-img {
+  background-color: #a855f7;
+}
+.profile-title {
+  color: #111827;
+  font-weight: 500;
+}
+.profile-bio {
+  font-weight: 400;
+  color: #6b7280;
+}
+.link-block {
+  background-color: #a855f7;
+  color: #fff;
+}
+.card-block {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.card-block .card-title {
+  color: #3f3f46;
+  font-weight: 600;
+}
+.card-block .card-desc {
+  color: #6b7280;
+  font-weight: 400;
+}
+.spotify-name {
+  color: #ffffff;
+  background-color: #a855f7;
+}
+.icons-container a i {
+  color: #a855f7;
+}

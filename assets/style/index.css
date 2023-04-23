@@ -1,0 +1,32 @@
+.carouselContainer .owl-carousel {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.owl-carousel .item {
+  width: 120px !important;
+  margin: 5px 15px 5px 15px !important;
+}
+
+.txt-main-color {
+  color: #3b82f6;
+}
+.txt-mainlight-color {
+  color: #448cff;
+}
+.txt-primary-color {
+  color: #414141;
+}
+.txt-secondary-color {
+  color: #6b7280;
+}
+.txt-white-color {
+  color: #ffffff;
+}
+.bg-main-color {
+  background-color: #3b82f6;
+}
+.bg-mainlight-color {
+  background-color: #448cff;
+}
