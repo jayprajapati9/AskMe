@@ -4,7 +4,7 @@ body {
 }
 
 /* Bubble Chat For Landing Page */
-._BUBBLECHAT {
+.Bubblechatt {
   position: relative;
   height: 50px;
   width: 73px;
@@ -16,7 +16,7 @@ body {
   border-radius: 2px;
 }
 
-._BUBBLECHAT:before {
+.Bubblechatt:before {
   content: "";
   position: absolute;
   left: 28px;
@@ -29,59 +29,8 @@ body {
   border-bottom: 7px solid transparent;
 }
 
-/* NavBar Bubble Chat */
-._NAVBUBBLECHAT {
-  font-size: 20px;
-  width: 40px;
-  margin-left: 5px;
-  background: #ffffff;
-  text-align: center;
-  color: #3b82f6;
-  position: relative;
-  border-radius: 2px;
-}
-
-._NAVBUBBLECHAT:before {
-  content: "";
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #ffffff;
-  border-bottom: 5px solid transparent;
-  left: 15px;
-  bottom: -9px;
-}
-
-/* Bubble Chat For Profile*/
-._PROFILEBUBBLECHAT {
-  font-size: 16px;
-  width: 35px;
-  margin-left: 5px;
-  padding-left: 4px;
-  padding-right: 4px;
-  background-color: #3b82f6;
-  text-align: center;
-  color: #ffffff;
-  position: relative;
-  border-radius: 2px;
-}
-
-._PROFILEBUBBLECHAT::before {
-  content: "";
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  border-left: 8px solid #3b82f6;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  left: 10px;
-  bottom: -7px;
-}
-
 @media (max-width: 640px) {
-  ._NAVBAR {
+  .NAVBAR {
     position: fixed;
     top: auto;
     justify-content: space-around !important;
@@ -103,4 +52,55 @@ body {
   right: 13px;
   top: -6px;
   transform: rotate(45deg);
+}
+
+/* NavBar Bubble Chat */
+.NavBubbleChat {
+  font-size: 20px;
+  width: 40px;
+  margin-left: 5px;
+  background: #ffffff;
+  text-align: center;
+  color: #3b82f6;
+  position: relative;
+  border-radius: 2px;
+}
+
+.NavBubbleChat:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #ffffff;
+  border-bottom: 5px solid transparent;
+  left: 15px;
+  bottom: -9px;
+}
+
+/* Bubble Chat For Profile*/
+.P_BubbleChat {
+  font-size: 16px;
+  width: 35px;
+  margin-left: 5px;
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: #3b82f6;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  border-radius: 2px;
+}
+
+.P_BubbleChat::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 8px solid #3b82f6;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  left: 10px;
+  bottom: -7px;
 }
